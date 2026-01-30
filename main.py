@@ -2,9 +2,8 @@ import json
 import sys
 from langchain_core.messages import HumanMessage
 from langgraph.graph import StateGraph, END
-from langgraph.checkpoint.memory import MemorySaver # Важно для логов
+from langgraph.checkpoint.memory import MemorySaver 
 
-# Твои импорты
 from utils.state import InterviewState
 from agents.observer import observer_node
 from agents.expert import expert_node
@@ -62,7 +61,6 @@ def save_logs(state: InterviewState, filename="interview_log.json", participant_
 
 def main():
     app = build_graph()
-    # Нужен для работы checkpointer
     config = {"configurable": {"thread_id": "interview_1"}}
     
     print(f"{Colors.HEADER}=== AI INTERVIEW SYSTEM V2 ==={Colors.ENDC}")
@@ -76,7 +74,6 @@ def main():
     print(f"\n{Colors.WARNING}🚀 Начало...{Colors.ENDC}\n")
     
     # ПЕРВЫЙ ШАГ: Бот здоровается и задает вопрос
-    # Мы не чистим лог после этого!
     result = app.invoke({
         "messages": [HumanMessage(content="Начни интервью.")],
         "candidate_info": {"name": name, "role": role, "level": level, "stack": stack},
@@ -90,7 +87,7 @@ def main():
     while True:
         user_text = input(f"\n{Colors.BOLD}You:{Colors.ENDC} ")
         
-        # Запускаем граф. Благодаря thread_id он сам достанет старый state
+        # Запускаем граф.
         result = app.invoke({
             "messages": [HumanMessage(content=user_text)]
         }, config=config)

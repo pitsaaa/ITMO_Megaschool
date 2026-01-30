@@ -88,7 +88,7 @@ def interviewer_node(state: InterviewState):
 
     log_entry = {
         "turn_id": turn_id,
-        "agent_visible_message": asked_question, # Теперь тут ПРАВИЛЬНЫЙ вопрос (на который ответили)
+        "agent_visible_message": asked_question, 
         "user_message": last_user_message,
         "internal_thoughts": combined_thoughts
     }

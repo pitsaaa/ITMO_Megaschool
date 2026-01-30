@@ -15,7 +15,6 @@ class InterviewState(TypedDict):
     observer_analysis: Optional[Dict[str, Any]]
     expert_plan: Optional[Dict[str, Any]]
     
-    # ВАЖНО: Убрали operator.add! 
     # Теперь Observer будет создавать чистый лист, а Expert — дополнять его вручную.
     current_turn_thoughts: List[str]
     
