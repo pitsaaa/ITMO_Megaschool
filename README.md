@@ -33,8 +33,8 @@
 
 ```bash
 # Клонируем репозиторий
-git clone https://github.com/yourusername/ai-interviewer.git
-cd ai-interviewer
+git clone https://github.com/pitsaaa/ITMO_Megaschool
+cd ITMO_Megaschool
 
 # Создаём и активируем виртуальное окружение
 python -m venv venv
