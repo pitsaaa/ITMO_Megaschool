@@ -49,6 +49,7 @@ pip install -r requirements.txt
 Создайте файл .env в корневой папке и добавьте ключ API:
 ```
 GROQ_API_KEY=your_api_key_here
+OPENAI_API_KEY=your_another_api # Либо другой
 ```
 ### 3. Запуск приложения
 
